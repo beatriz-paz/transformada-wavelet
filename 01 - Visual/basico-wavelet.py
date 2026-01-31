@@ -61,19 +61,25 @@ Retorna uma matriz:
 '''
 
 plt.figure(figsize=(12,6))
-plt.subplot(1,2,1)
-plt.imshow(np.abs(Zxx), aspect='auto', origin='lower')
+
+# --- STFT ---
+ax1 = plt.subplot(1,2,1)
+ax1.imshow(np.abs(Zxx), aspect='auto', origin='lower')
+ax1.set_title("STFT (Janela Fixa)")
+ax1.set_xlabel("Tempo")
+ax1.set_ylabel("Frequência")
 '''
     np.abs(Zxx) → magnitude (descarta fase)
     imshow → imagem tempo-frequência
     aspect='auto' → escala automática
     origin='lower' → frequências baixas embaixo
 '''
-plt.title("STFT (Janela Fixa)")
-
-plt.subplot(1,2,2)
-plt.imshow(np.abs(cwt_mat), aspect='auto', origin='lower')
-plt.title("CWT (Wavelet Morlet)")
+# --- CWT ---
+ax2 = plt.subplot(1,2,2)
+ax2.imshow(np.abs(cwt_mat), aspect='auto', origin='lower')
+ax2.set_title("CWT (Wavelet Morlet)")
+ax2.set_xlabel("Tempo")
+ax2.set_ylabel("Frequência")
 
 plt.tight_layout()
 plt.show()
