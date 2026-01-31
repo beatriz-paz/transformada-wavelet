@@ -2,33 +2,57 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pywt
 
-# sinal sintético
+# -----------------------------
+# Criação do sinal
+# -----------------------------
 t = np.linspace(0, 1, 1024)
 sig = np.sin(2*np.pi*50*t) + 0.5*np.sin(2*np.pi*120*t)
 sig += 0.3*np.random.randn(len(t))
 
-wavelet = "db4"
+# -----------------------------
+# Parâmetros
+# -----------------------------
+wavelets = ["db4", "sym4", "coif3", "haar"]
 level = 4
 
-# decompor
-coeffs = pywt.wavedec(sig, wavelet, level=level)
-cA, details = coeffs[0], coeffs[1:]
+# -----------------------------
+# Loop por wavelet
+# -----------------------------
+for wavelet in wavelets:
 
-# reconstruir
-rec = pywt.waverec(coeffs, wavelet)
+    # Decomposição
+    coeffs = pywt.wavedec(sig, wavelet, level=level)
+    rec = pywt.waverec(coeffs, wavelet)
+    rec = rec[:len(sig)]
 
-# plot
-plt.figure(figsize=(10,8))
-plt.subplot(3,1,1)
-plt.plot(sig); plt.title("Sinal original")
+    details = coeffs[1:]
 
-plt.subplot(3,1,2)
-plt.plot(rec); plt.title("Reconstrução (IDWT)")
+    # -------------------------
+    # Figura da wavelet atual
+    # -------------------------
+    plt.figure(figsize=(12, 7))
+    plt.suptitle(f"Análise Wavelet DWT – {wavelet}", fontsize=14)
 
-plt.subplot(3,1,3)
-for i, d in enumerate(details):
-    plt.plot(d, label=f"Detalhe D{level-i}")
-plt.legend()
-plt.title("Coeficientes de detalhe")
-plt.tight_layout()
-plt.show()
+    # Sinal original
+    ax1 = plt.subplot(3, 1, 1)
+    ax1.plot(sig)
+    ax1.set_title("Sinal original")
+    ax1.set_ylabel("Amplitude")
+
+    # Reconstrução
+    ax2 = plt.subplot(3, 1, 2)
+    ax2.plot(rec)
+    ax2.set_title("Reconstrução (IDWT)")
+    ax2.set_ylabel("Amplitude")
+
+    # Detalhes
+    ax3 = plt.subplot(3, 1, 3)
+    for i, d in enumerate(details):
+        ax3.plot(d, label=f"D{level-i}")
+    ax3.set_title("Coeficientes de detalhe")
+    ax3.set_xlabel("Amostras")
+    ax3.set_ylabel("Amplitude")
+    ax3.legend(fontsize=8)
+
+    plt.tight_layout(rect=[0, 0, 1, 0.95])
+    plt.show()
