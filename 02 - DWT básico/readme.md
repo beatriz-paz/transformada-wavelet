@@ -52,6 +52,25 @@ Essa característica torna a DWT ideal para aplicações como a **remoção de r
 
 ## Diferentes Wavelets Mãe
 
+A seguir apresento os gráficos que são gerados ao executar o programa dwt_basico.py:
+
+![Haar](img/dwt_haar.png)
+
+Fonte: Elaborado pela autora (2026).
+
+![Daubechies (db4)](img/dwt_db4.png)
+
+Fonte: Elaborado pela autora (2026).
+
+![Symlet (sym4)](img/dwt_sym4.png)
+
+Fonte: Elaborado pela autora (2026).
+
+![Coiflet (coif3)](img/dwt_coif3.png)
+
+Fonte: Elaborado pela autora (2026).
+
+
 Ao analisar os gráficos gerados por diferentes wavelets-mãe, nota-se que, embora a reconstrução do sinal seja praticamente idêntica ao original em todos os casos, surgem diferenças sutis nos coeficientes de detalhe. Isso ocorre porque cada wavelet possui propriedades matemáticas distintas como suavidade, simetria e comprimento do filtro, que influenciam a distribuição da energia do sinal entre as escalas.
 
 - **Haar:** Por ser descontínua e ter suporte curto, gera coeficientes com transições abruptas e picos concentrados. É altamente sensível a variações rápidas, mas descreve sinais suaves (como senoides) de forma "serrilhada".
