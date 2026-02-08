@@ -19,7 +19,7 @@ Compressão simples, detecção de descontinuidade, filtragem, thresholding para
 DWT em imagens (2D), análise multiescala, denoising de imagem.
 
 - Nível 5 — CWT / Scalogramas:
-Continuous Wavelet Transform para análise de sinais não-estacionários (ex.: áudio, ECG).
+Continuous Wavelet Transform para análise de sinais não-estacionários (ex.: áudio, imagem mamográfica, ECG, etc).
 
 - Nível 6 — Wavelet Packet, scattering
 Wavelet packet decomposition, escolha ótima de bases; introdução ao scattering transform (mais avançado, pode envolver Kymatio).
