@@ -48,3 +48,18 @@ O menu interativo que aparece ao executar o programa permite testar várias wave
 ## Ideia central das wavelets
 
 Wavelets permitem analisar imagens e sinais ao mesmo tempo no espaço e na frequência, em múltiplas escalas. Elas são especialmente eficazes para tarefas como remoção de ruído, compressão e extração de características. O programa __dwt_img.py__ mostra, de forma prática, como uma imagem é decomposta, tratada e reconstruída, consolidando os conceitos fundamentais.
+
+## Exemplo wavelet Haar
+
+Ao executar o programa foi escolhida a opção de wavelet HAAR, e após isso é apresentada a figura conforme abaixo:
+
+![Haar](img/haar.png)
+
+A mesma figura é apresentada para as diferentes opções de wavelets possíveis a ser selecionada. 
+
+Em resumo, na figura acima mostra-se as quatro etapas que a imagem passa, sendo elas:
+
+- Original: imagem apenas carregada sem nenhuma modificação;
+- Com ruído: imagem após adição de ruído;
+- Reconstrução: processo de voltar a imagem do domínio wavelet para o domínio espacial sem alterar os coeficientes;
+- Denoising: envolve modificar os coeficientes wavelet antes da reconstrução. Normalmente, os coeficientes de alta frequência são reduzidos ou eliminados por thresholding, pois concentram ruído. Após essa modificação, a reconstrução gera uma imagem diferente da original, com menos ruído e alguma perda controlada de detalhes.
