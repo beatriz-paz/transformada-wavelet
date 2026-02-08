@@ -2,29 +2,34 @@
 
 ## Objetivo:
 
-- Repositório dedicado para estudar aplicações em Python da transformada Wavalet.
+- Este repositório tem como objetivo estudar e praticar a Transformada Wavelet por meio de implementações em Python, focando na compreensão dos conceitos e em aplicações práticas.
 
 ## Plano de estudo:
 
-- Nível 1 — Visual
-Fundamentos: o que é wavelet, comparação com Fourier, impulso/resolução tempo-frequência. Visualizar wavelets (Haar, Daubechies, Morlet).
+**Nível 1 — Fundamentos visuais**
 
-- Nível 2 — DWT básico (1D):
-Implementar DWT, reconstrução (IDWT), entender coeficientes (approx / detalhe), níveis de decomposição.
+Introdução ao conceito de wavelet e comparação com a transformada de Fourier. Estudo da resolução tempo–frequência e visualização de wavelets clássicas, como Haar, Daubechies e Morlet.
 
-- Nível 3 — Aplicações simples:
-Compressão simples, detecção de descontinuidade, filtragem, thresholding para remoção de ruído.
+**Nível 2 — DWT básica (1D)**
 
-- Nível 4 — Multiresolução & 2D:
-DWT em imagens (2D), análise multiescala, denoising de imagem.
+Implementação da Transformada Wavelet Discreta em sinais 1D. Compreensão da reconstrução (IDWT), dos coeficientes de aproximação e detalhe e dos níveis de decomposição.
 
-- Nível 5 — CWT / Scalogramas:
-Continuous Wavelet Transform para análise de sinais não-estacionários (ex.: áudio, imagem mamográfica, ECG, etc).
+**Nível 3 — Aplicações iniciais**
 
-- Nível 6 — Wavelet Packet, scattering
-Wavelet packet decomposition, escolha ótima de bases; introdução ao scattering transform (mais avançado, pode envolver Kymatio).
+Uso da wavelet em problemas simples, como compressão básica, detecção de descontinuidades, filtragem e remoção de ruído por thresholding.
 
-- Nível 7 — Projeto final: classificação de sinais, compressão e reconstrução de imagens, detecção de falhas em sinais.
+**Nível 4 — Multiresolução e wavelets 2D**
+
+Aplicação da DWT em imagens. Análise multiescala e técnicas de denoising em duas dimensões.
+
+**Nível 5 — CWT e escalogramas**
+
+Estudo da Transformada Wavelet Contínua para análise de sinais não estacionários, como áudio, sinais biomédicos (mamografia) e imagens específicas.
+
+**Nível 6 — Wavelet Packet e Scattering**
+
+Introdução à decomposição por Wavelet Packet, escolha ótima de bases e conceitos iniciais do Scattering Transform, com ferramentas como o Kymatio.
+
 
 ## Bibliotecas:
 
