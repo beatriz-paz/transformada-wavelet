@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy import signal
 import pywt
 
 # ==================================================
@@ -13,12 +12,12 @@ sig = np.sin(2*np.pi*50*t)*(t < 0.5) + \
       np.sin(2*np.pi*120*t)*(t >= 0.5)
 
 # ==================================================
-# 2. CWT (CONTÍNUA)
+# 2. CWT (CONTÍNUA) - CORRIGIDO
 # ==================================================
 scales = np.arange(1, 128)
-w = 6
 
-cwt_coeffs = signal.cwt(sig, signal.morlet2, scales, w=w)
+# 'morl' = Morlet no PyWavelets
+cwt_coeffs, freqs = pywt.cwt(sig, scales, 'morl')
 
 # ==================================================
 # 3. DWT (DISCRETA)
@@ -37,8 +36,8 @@ plt.figure(figsize=(14, 10))
 # Figura 1 – Sinal
 # -------------------------
 plt.subplot(3, 1, 1)
-plt.plot(t, sig, color='black')
-plt.axvline(0.5, color='red', linestyle='--')
+plt.plot(t, sig)
+plt.axvline(0.5, linestyle='--')
 plt.title("Sinal não estacionário no tempo")
 plt.xlabel("Tempo (s)")
 plt.ylabel("Amplitude")
@@ -51,7 +50,6 @@ plt.subplot(3, 1, 2)
 plt.imshow(
     np.abs(cwt_coeffs),
     extent=[0, 1, scales[-1], scales[0]],
-    cmap='jet',
     aspect='auto'
 )
 plt.colorbar(label="|Coeficientes Wavelet|")
